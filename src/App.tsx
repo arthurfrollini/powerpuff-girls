@@ -1,49 +1,67 @@
 import { useEffect, useState } from "react";
 
+import { Episodes } from "./components/Episodes";
+import { Header } from "./components/Header";
+import { TvShow, Show } from "./infra/models/TvShow";
 import { useTvShow } from "./infra/presenters/useTvShow";
-
-interface IImage {
-  medium: string;
-}
-interface IShow {
-  name: string;
-  summary: string;
-  image: IImage;
-}
-interface ITeste {
-  show: IShow;
-}
+import { removeTags } from "./utils/utils";
 
 function App() {
-  const [json, setJson] = useState("");
-  const [teste, setTeste] = useState<ITeste[]>([]);
-  const { getTvShowList } = useTvShow();
+  const { getTvShowInfos, getEpisodesList } = useTvShow();
 
-  async function fetchTvShowData() {
-    const { data } = await getTvShowList("powerpuff");
+  const [items, setItems] = useState([]);
+  const [itemsPerPage, setItemsPerPage] = useState(20);
+  const [currentPage, setCurrentPage] = useState(0);
 
-    setJson(JSON.stringify(data[0], null, 2));
+  const pages = Math.ceil(items.length / itemsPerPage);
 
-    setTeste(data);
-  }
+  const [powerPuffGirlsInfos, setPowerPuffGirlsInfos] = useState<TvShow[]>([]);
+  const [powerPuffGirlsEpisodes, setPowerPuffGirlsEpisodes] = useState<Show[]>(
+    []
+  );
 
   useEffect(() => {
-    fetchTvShowData();
+    async function fetchTvShowData() {
+      const { data, err } = await getTvShowInfos("powerpuff");
+
+      if (data && !err) {
+        setPowerPuffGirlsInfos(data);
+      }
+    }
+
+    if (powerPuffGirlsInfos.length === 0) {
+      fetchTvShowData();
+    }
   }, []);
+
+  useEffect(() => {
+    async function fetchTvShowEpisodes(showId: number) {
+      const { data, err } = await getEpisodesList(showId);
+
+      if (data && !err) {
+        setPowerPuffGirlsEpisodes(data);
+        setItems(data);
+      }
+    }
+
+    if (powerPuffGirlsInfos[1]?.show?.id) {
+      fetchTvShowEpisodes(powerPuffGirlsInfos[1].show.id);
+    }
+  }, [powerPuffGirlsInfos]);
 
   return (
     <div className="App">
-      <pre>{json}</pre>
-      <h1>{teste[0]?.show?.name}</h1>
+      <div>{pages}</div>
 
-      <img src={teste[0]?.show.image.medium} alt="ppg" />
-      <p>
-        {teste[0]?.show?.summary
-          .replace("<p>", "")
-          .replace("<b>", "")
-          .replace("</p>", "")
-          .replace("</b>", "")}
-      </p>
+      {powerPuffGirlsInfos.length > 0 && (
+        <Header
+          name={powerPuffGirlsInfos[1].show.name}
+          imageSource={powerPuffGirlsInfos[1].show.image.medium}
+          summary={removeTags(powerPuffGirlsInfos[1].show.summary)}
+        />
+      )}
+
+      <Episodes episodes={powerPuffGirlsEpisodes} />
     </div>
   );
 }
