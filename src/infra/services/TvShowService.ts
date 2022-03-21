@@ -29,4 +29,18 @@ export class TvShowService {
       };
     }
   }
+
+  async getEpisodeDetails(episodeId: number) {
+    try {
+      const { data } = await api.get(`/episodes/${episodeId}`);
+
+      return {
+        data,
+      };
+    } catch (err) {
+      return {
+        err,
+      };
+    }
+  }
 }

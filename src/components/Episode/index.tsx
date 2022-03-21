@@ -1,13 +1,16 @@
+import { StyledLink, EpisodeName, EpisodeNumber } from "./styles";
+
 interface EpisodeProps {
   name: string;
+  id: string;
   episodeNumber: number;
 }
 
-export function Episode({ name, episodeNumber }: EpisodeProps) {
+export function Episode({ name, id, episodeNumber }: EpisodeProps) {
   return (
-    <div style={{ display: "flex" }}>
-      <span>{`${episodeNumber + 1} -`}</span>
-      <strong>{name}</strong>
-    </div>
+    <StyledLink to={`episode/${id}`}>
+      <EpisodeNumber>{episodeNumber + 1}</EpisodeNumber>
+      <EpisodeName>{name}</EpisodeName>
+    </StyledLink>
   );
 }

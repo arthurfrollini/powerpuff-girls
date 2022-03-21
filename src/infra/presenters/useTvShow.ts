@@ -11,8 +11,14 @@ export function useTvShow() {
     return tvShowService.getEpisodesList(showId);
   }
 
+  async function getEpisodeDetails(episodeId: number) {
+    const tvShowService = new TvShowService();
+    return tvShowService.getEpisodeDetails(episodeId);
+  }
+
   return {
     getTvShowInfos,
     getEpisodesList,
+    getEpisodeDetails,
   };
 }
