@@ -6,6 +6,10 @@ export const EpisodesContainer = styled.div`
   flex-direction: column;
   flex-wrap: wrap;
   height: 460px;
+
+  @media (max-width: 575px) {
+    width: 80%;
+  }
 `;
 
 export const PageButtonsContainer = styled.div``;
@@ -17,6 +21,7 @@ export const PageButton = styled.button`
   width: 30px;
   height: 30px;
   margin-right: 10px;
+  margin-bottom: 10px;
   font-weight: bold;
 
   background-color: var(--secondary);

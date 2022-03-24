@@ -22,7 +22,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -44,6 +44,8 @@
     ]
   },
   "devDependencies": {
+    "@swc/core": "^1.2.160",
+    "@swc/jest": "^0.2.20",
     "@types/react-router-dom": "^5.3.3",
     "@types/styled-components": "^5.1.24",
     "@typescript-eslint/eslint-plugin": "^5.15.0",
@@ -61,6 +63,8 @@
     "eslint-plugin-promise": "^5.2.0",
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.3.0",
-    "prettier": "^2.5.1"
+    "jest": "^27.5.1",
+    "prettier": "^2.5.1",
+    "ts-node": "^10.7.0"
   }
 }
