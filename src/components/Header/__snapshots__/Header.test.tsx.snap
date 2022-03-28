@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component matches snapshot 1`] = `
+<div
+  className="sc-bdvvtL gzBWRV"
+  data-testid="header"
+>
+  <h1
+    className="sc-dkPtRN dIVUCs"
+  >
+    Powerpuff Girls
+  </h1>
+  <div
+    className="sc-eCImPb iKOuKf"
+  >
+    <img
+      alt="PowerPuff Girls Image"
+      className="sc-gKclnd klwHyn"
+      height="200px"
+      src="https://upload.wikimedia.org/wikipedia/pt/0/08/The_Powerpuff_Girls_Logo.png"
+      style={
+        Object {
+          "marginBottom": 30,
+        }
+      }
+    />
+    <p
+      className="sc-furwcr ehkaCT"
+    >
+      As Meninas Superpoderosas é uma série de desenho animado criada e escrita por Craig McCracken. Sucesso em todo o mundo!
+    </p>
+  </div>
+</div>
+`;

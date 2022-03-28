@@ -19,7 +19,7 @@ interface HeaderProps {
 
 export function Header({ name, imageSource, summary, isHome }: HeaderProps) {
   return (
-    <Container>
+    <Container data-testid="header">
       {isHome ? (
         <>
           <TitleHome>{name}</TitleHome>

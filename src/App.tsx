@@ -1,11 +1,15 @@
 import { Routes } from "./routes";
 import { GlobalStyle } from "./styles/global";
 
+import { PaginationProvider } from "./hooks/usePagination";
+
 function App() {
   return (
     <div className="App">
-      <Routes />
-      <GlobalStyle />
+      <PaginationProvider>
+        <Routes />
+        <GlobalStyle />
+      </PaginationProvider>
     </div>
   );
 }

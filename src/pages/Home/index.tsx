@@ -40,8 +40,8 @@ export function Home() {
       }
     }
 
-    if (powerPuffGirlsInfos[1]?.show?.id) {
-      fetchTvShowEpisodes(powerPuffGirlsInfos[1].show.id);
+    if (powerPuffGirlsInfos[2]?.show?.id) {
+      fetchTvShowEpisodes(powerPuffGirlsInfos[2].show.id);
     }
   }, [powerPuffGirlsInfos]);
 
@@ -50,9 +50,9 @@ export function Home() {
       {powerPuffGirlsInfos.length > 0 && (
         <Header
           isHome
-          name={powerPuffGirlsInfos[1].show.name}
-          imageSource={powerPuffGirlsInfos[1].show.image.medium}
-          summary={removeTags(powerPuffGirlsInfos[1].show.summary)}
+          name={powerPuffGirlsInfos[2].show.name}
+          imageSource={powerPuffGirlsInfos[2].show.image.medium}
+          summary={removeTags(powerPuffGirlsInfos[2].show.summary)}
         />
       )}
 

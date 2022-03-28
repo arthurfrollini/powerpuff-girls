@@ -193,7 +193,7 @@ export default {
         },
         module: {
           type: "es6",
-          noInterp: false,
+          // noInterp: false,
         },
       },
     ],

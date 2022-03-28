@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination component matches snapshot 1`] = `
+<div
+  className="sc-bdvvtL hfEwdR"
+  data-testid="pagination"
+>
+  <button
+    className="sc-gsDKAQ jeWMKV"
+    onClick={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#84B5EB",
+      }
+    }
+    value={0}
+  >
+    1
+  </button>
+</div>
+`;

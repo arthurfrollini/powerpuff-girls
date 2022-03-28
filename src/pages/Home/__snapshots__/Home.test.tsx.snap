@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home component matches snapshot 1`] = `
+<div
+  className="sc-bdvvtL gzBWRV"
+>
+  <strong
+    className="sc-gsDKAQ yoBRS"
+  >
+    Lista de episódios:
+  </strong>
+  <div
+    className="sc-kDTinF TzqHu"
+  />
+  <div
+    className="sc-bqiRlB gtwUVt"
+    data-testid="pagination"
+  />
+</div>
+`;
